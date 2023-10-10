@@ -8,3 +8,9 @@ body {
   border-radius: 50%;
   width: 30px;
 }
+
+#horizontal-auth {
+  margin: 0 auto;
+  width: 10%;
+  border: 1px solid white;
+}

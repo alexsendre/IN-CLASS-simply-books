@@ -80,7 +80,13 @@ const getAuthorBooks = (firebaseKey) => new Promise((resolve, reject) => {
       'Content-Type': 'application/json',
     },
   }).then((response) => response.json())
-    .then((data) => resolve(data))
+    .then((data) => {
+      if (data) {
+        resolve(Object.values(data));
+      } else {
+        resolve([]);
+      }
+    })
     .catch(reject);
 });
 
