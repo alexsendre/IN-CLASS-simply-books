@@ -45,7 +45,7 @@ function BookForm({ obj }) {
       createBook(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateBook(patchPayload).then(() => {
-          router.push('/');
+          router.push('/book/view');
         });
       });
     }
@@ -53,7 +53,7 @@ function BookForm({ obj }) {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Book</h2>
+      <h2 className="text-white text-center mt-4">{obj.firebaseKey ? 'Update' : 'Create'} Book</h2>
 
       {/* TITLE INPUT  */}
       <FloatingLabel controlId="floatingInput1" label="Book Title" className="mb-3">
@@ -145,7 +145,9 @@ function BookForm({ obj }) {
       />
 
       {/* SUBMIT BUTTON  */}
-      <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Book</Button>
+      <Form.Group className="text-center">
+        <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Book</Button>
+      </Form.Group>
     </Form>
   );
 }

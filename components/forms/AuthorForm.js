@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Form } from 'react-bootstrap';
+import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { useRouter } from 'next/router';
 import { useAuth } from '../../utils/context/authContext';
 import { createAuthor, updateAuthor } from '../../api/authorData';
@@ -56,57 +56,61 @@ function AuthorForm({ obj }) {
       <Form.Group
         className="mb-3 mt-3"
       >
-        <Form.Label>First Name</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Enter First Name"
-          name="first_name"
-          value={formInput.first_name}
-          onChange={handleChange}
-          required
-        />
+        <FloatingLabel controlId="floatingInput1" label="Author First Name" className="mb-3">
+          <Form.Control
+            type="text"
+            placeholder="Enter First Name"
+            name="first_name"
+            value={formInput.first_name}
+            onChange={handleChange}
+            required
+          />
+        </FloatingLabel>
       </Form.Group>
 
       <Form.Group
         className="mb-3"
       >
-        <Form.Label>Last Name</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Enter Last Name"
-          name="last_name"
-          value={formInput.last_name}
-          onChange={handleChange}
-          required
-        />
+        <FloatingLabel controlId="floatingInput2" label="Author Last Name" className="mb-3">
+          <Form.Control
+            type="text"
+            placeholder="Enter Last Name"
+            name="last_name"
+            value={formInput.last_name}
+            onChange={handleChange}
+            required
+          />
+        </FloatingLabel>
       </Form.Group>
 
       <Form.Group
         className="mb-3"
       >
-        <Form.Label>Email</Form.Label>
-        <Form.Control
-          type="email"
-          placeholder="Enter Email"
-          name="email"
-          value={formInput.email}
-          onChange={handleChange}
-          required
-        />
+        <FloatingLabel controlId="floatingInput3" label="Author Email" className="mb-3">
+          <Form.Control
+            type="email"
+            placeholder="Enter Email"
+            name="email"
+            value={formInput.email}
+            onChange={handleChange}
+            required
+          />
+        </FloatingLabel>
       </Form.Group>
 
       <Form.Group
         className="mb-3"
       >
-        <Form.Label>Image</Form.Label>
-        <Form.Control
-          type="url"
-          placeholder="Enter image url"
-          name="image"
-          value={formInput.image}
-          onChange={handleChange}
-          required
-        />
+        <FloatingLabel controlId="floatingInput4" label="Author Image" className="mb-3">
+          <Form.Control
+            type="url"
+            placeholder="Enter image url"
+            name="image"
+            value={formInput.image}
+            onChange={handleChange}
+            required
+          />
+        </FloatingLabel>
       </Form.Group>
 
       <Form.Group
@@ -114,6 +118,7 @@ function AuthorForm({ obj }) {
         controlId="formBasicCheckbox"
       >
         <Form.Check
+          className="text-white"
           type="switch"
           id="favorite"
           name="favorite"
@@ -128,9 +133,11 @@ function AuthorForm({ obj }) {
         />
       </Form.Group>
 
-      <Button variant="success" type="submit">
-        {obj.firebaseKey ? 'Update' : 'Create'} Author
-      </Button>
+      <Form.Group className="text-center">
+        <Button variant="success" type="submit">
+          {obj.firebaseKey ? 'Update' : 'Create'} Author
+        </Button>
+      </Form.Group>
     </Form>
   );
 }
