@@ -21,7 +21,7 @@ export default function AuthorsOnDom() {
 
   return (
     <div className="text-center my-4">
-      <Link href="/author/new" passHref>
+      <Link href="/author/new" passHref className="mt-3">
         <Button>Add an Author</Button>
       </Link>
       <div className="d-flex flex-wrap">
